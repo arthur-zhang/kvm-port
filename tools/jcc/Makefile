@@ -8,7 +8,8 @@ TOP=../..
 include $(TOP)/build/Makefile.inc
 
 JAVA          = java
-JAVAC         = javac
+JAVAC         = javac -source 1.4
+
 JAR           = jar
 
 JAVAFILES =  $(shell find src -name "*.java"|grep -v SCCS)

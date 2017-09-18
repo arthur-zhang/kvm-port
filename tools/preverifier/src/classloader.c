@@ -702,8 +702,16 @@ createInternalClass0(CICcontext *context, ClassClass *cb,
     struct Classjava_lang_Class *ucb = unhand(cb);
     bool_t have_inner_classes;
 
-    if (get4bytes(context) != JAVA_CLASSFILE_MAGIC)
+    // if (get4bytes(context) != JAVA_CLASSFILE_MAGIC)
+        // JAVA_ERROR(context, "Bad magic number");
+    
+    int magic_number_1 = get4bytes(context);
+    // printClassName();
+    // fprintf(stderr, "magic number: %d\n", magic_number_1);
+    if (magic_number_1 != JAVA_CLASSFILE_MAGIC) {
+//    if ( get4bytes(context)!= JAVA_CLASSFILE_MAGIC) {
         JAVA_ERROR(context, "Bad magic number");
+    }
 
     ucb->minor_version = get2bytes(context);
     ucb->major_version = get2bytes(context);

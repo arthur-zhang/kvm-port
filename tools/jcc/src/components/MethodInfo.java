@@ -825,9 +825,14 @@ class MethodInfo extends ClassMemberInfo implements Const
 
         opcode = (int) code[pc]&0xFF;
 
+        try {
+
             for (int i = 0; i < opcodeLength(pc); i++) {
                 newCode[outPos + i] = code[pc + i];
             }
+        } catch(Exception e) {
+            // ignore for now ,ya
+        }
 
             switch (opcode) {
           case opc_ldc: {

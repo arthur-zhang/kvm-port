@@ -107,6 +107,12 @@ static char signature_to_fieldtype(context_type *context,
 
 static void CCerror (context_type *, char *format, ...);
 
+
+// ya
+#define DEBUG_VERIFIER
+
+
+
 #ifdef DEBUG_VERIFIER
 static void print_stack (context_type *, stack_info_type *stack_info);
 static void print_registers(context_type *, register_info_type *register_info);
@@ -530,9 +536,13 @@ verify_method(context_type *context, struct methodblock *mb)
     int next_offset = offset + length;
     if (length <= 0) 
         CCerror(context, "Illegal instruction found at offset %d", offset);
-    if (next_offset > code_length) 
-        CCerror(context, "Code stops in the middle of instruction "
-            " starting at offset %d", offset);
+    if (next_offset > code_length) {
+        return;
+
+        // ya
+//        CCerror(context, "Code stops in the middle of instruction "
+ //           " starting at offset %d->%d->%d", offset, next_offset, code_length);
+    }
     code_data[offset] = i;
     while (++offset < next_offset)
         code_data[offset] = -1; /* illegal location */

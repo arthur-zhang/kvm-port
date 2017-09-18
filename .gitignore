@@ -1,0 +1,12 @@
+*.o
+api/classes.zip
+api/classes/
+api/tmpclasses/
+build.sh
+kvm/VmUnix/build/kvm
+tools/jcc/ROMjavaUnix.c
+tools/jcc/classes.zip
+tools/jcc/classes/
+tools/jcc/classesUnix.zip
+tools/jcc/nativeFunctionTableUnix.c
+tools/preverifier/build/linux/preverify

@@ -81,9 +81,9 @@ public class ClassReader {
     int i = 0;
 
         ZipFile zf = new ZipFile(fileName);
-        Enumeration enum = zf.entries();
-        while (enum.hasMoreElements()) {
-            ZipEntry ent = (ZipEntry)enum.nextElement();
+        Enumeration enum1 = zf.entries();
+        while (enum1.hasMoreElements()) {
+            ZipEntry ent = (ZipEntry)enum1.nextElement();
         String name = ent.getName();
         if (!ent.isDirectory() && 
         (name.endsWith(".class") || name.endsWith(".mclass"))) {
