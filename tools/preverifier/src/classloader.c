@@ -466,7 +466,7 @@ static char *getAscizFromClass(CICcontext *, int i);
 
 static unsigned char get1byte(CICcontext *);
 static unsigned short get2bytes(CICcontext *);
-static unsigned long get4bytes(CICcontext *);
+static unsigned int get4bytes(CICcontext *);
 static void getNbytes(CICcontext *, int count, char *buffer);
 static void *allocNBytes(CICcontext *, int size);
 static void freeBuffers(CICcontext *);
@@ -702,14 +702,7 @@ createInternalClass0(CICcontext *context, ClassClass *cb,
     struct Classjava_lang_Class *ucb = unhand(cb);
     bool_t have_inner_classes;
 
-    // if (get4bytes(context) != JAVA_CLASSFILE_MAGIC)
-        // JAVA_ERROR(context, "Bad magic number");
-    
-    int magic_number_1 = get4bytes(context);
-    // printClassName();
-    // fprintf(stderr, "magic number: %d\n", magic_number_1);
-    if (magic_number_1 != JAVA_CLASSFILE_MAGIC) {
-//    if ( get4bytes(context)!= JAVA_CLASSFILE_MAGIC) {
+   if (get4bytes(context) != JAVA_CLASSFILE_MAGIC) {
         JAVA_ERROR(context, "Bad magic number");
     }
 
@@ -1577,14 +1570,14 @@ static unsigned short get2bytes(CICcontext *context)
  *
  *   returns:     value read or 0 if an error occurred.
  *=======================================================================*/
-static unsigned long get4bytes(CICcontext *context)
+static unsigned int get4bytes(CICcontext *context)
 {
     unsigned char *ptr = context->ptr;
     if (context->end_ptr - ptr < 4) {
         JAVA_ERROR(context, "Truncated class file");
         return 0;
     } else {
-        unsigned long value = (ptr[0] << 24) + (ptr[1] << 16) +
+        unsigned int value = (ptr[0] << 24) + (ptr[1] << 16) +
                                  (ptr[2] << 8) + ptr[3];
         (context->ptr) += 4;
         return value;
