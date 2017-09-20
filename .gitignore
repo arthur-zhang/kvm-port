@@ -10,3 +10,10 @@ tools/jcc/classes/
 tools/jcc/classesUnix.zip
 tools/jcc/nativeFunctionTableUnix.c
 tools/preverifier/build/linux/preverify
+.idea
+cmake-build-debug
+CMakeLists.txt
+.filelist
+HelloWorld.java
+HelloWorld.class
+compile.sh
