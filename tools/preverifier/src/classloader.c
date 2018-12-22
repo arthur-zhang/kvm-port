@@ -29,14 +29,24 @@
 #include <stdlib.h>
 #include <setjmp.h>
 
-#include <jar.h>
-#include <oobj.h>
-#include <path.h>
-#include <tree.h>
-#include <signature.h>
-#include <convert_md.h> 
+#include "jar.h"
+#include "oobj.h"
+#include "path.h"
+#include "tree.h"
+#include "signature.h"
+#include "convert_md.h"
 
-#include <sys_api.h>
+#include "sys_api.h"
+#include "oobj.h"
+#include "tree.h"
+#include "typedefs.h"
+#include "path.h"
+#include "jar.h"
+#include "sys_api.h"
+#include "path_md.h"
+#include "signature.h"
+#include "sysmacros_md.h"
+#include "typecodes.h"
 
 #ifdef UNIX
 #include <unistd.h>
